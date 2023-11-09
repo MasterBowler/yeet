@@ -1,0 +1,26 @@
+.class-dictionary {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.class-box {
+    height: 12px;
+    width: 12px;
+    border-radius: 6px;
+    margin-right: 5px;
+}
+
+.future-class {
+    background-color: #c08300;
+}
+
+.current-class {
+    background-color: #513ff3;
+}
+
+.past-class {
+    background-color: #c75252;
+}

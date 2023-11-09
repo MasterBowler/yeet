@@ -1,0 +1,66 @@
+.badge-old {
+    background-color: #c75252;
+}
+
+.badge-future {
+    background-color: #c08300;
+}
+
+.badge-current {
+    background-color: #513ff3;
+}
+
+.class-schedule-box {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 15px;
+}
+
+.class-schedule-box:hover {
+    border-color: #513ff3;
+}
+
+.badge {
+    margin-bottom: 5px;
+}
+
+.class-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.class-coordinator {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.class-description {
+    font-size: 14px;
+}
+
+.class-participants {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.class-enroll {
+    display: flex;
+    justify-content: end;
+}
+
+.class-attendance {
+    display: flex;
+    align-items: center;
+}
+
+.btn-primary {
+    padding: 4px 8px !important;
+    font-size: 14px;
+}

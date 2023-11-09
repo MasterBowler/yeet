@@ -1,0 +1,131 @@
+.sidebar-menu {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-menu-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px !important;
+}
+
+.sidebar-menu-header {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-menu-nav-link {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+}
+
+.sidebar-menu-nav-link:hover,
+.nav-item-with-bg {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+}
+
+.sidebar-menu-nav-item:hover {
+    position: relative;
+    text-decoration: none;
+}
+
+.sidebar-menu-nav-icon .icon > svg > path {
+    fill: rgba(255, 255, 255, 0.5);
+    fill-opacity: 1;
+}
+
+.sidebar-menu-nav-link:hover .sidebar-menu-nav-icon .icon > svg > path,
+.sidebar-menu-nav-link.active .sidebar-menu-nav-icon .icon > svg > path{
+    fill: #24e896;
+}
+
+.sidebar-menu-nav-title {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.sidebar-menu-nav-link {
+    color: rgba(255, 255, 255, 0.5) !important;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar-menu-nav-icon {
+    padding-right: 10px;
+}
+
+.sidebar-menu-nav-link:hover,
+.sidebar-menu-nav-link.active {
+    color: #FFFFFF !important;
+}
+
+.sidebar-menu-toggle {
+    display: none;
+}
+
+.sidebar-menu-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.sidebar-menu-body {
+    height: 100%;
+    flex: 0 1 auto;
+}
+
+.nav-logo svg {
+    width: 40px;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 25px;
+}
+
+.sidebar-menu-header {
+    justify-content: flex-start;
+}
+
+.navigation-bottom {
+    margin-top: auto;
+}
+
+.user-info {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+}
+
+.badge {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 4px 4px 3px 4px;
+    background-color: #513ff3;
+    text-align: center;
+}
+
+.user-info-role {
+    margin-bottom: 10px;
+}
+
+.user-info-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.user-info-details {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+.nav-item-with-bg {
+    margin-bottom: 20px;
+}

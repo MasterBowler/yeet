@@ -1,0 +1,107 @@
+.table {
+    width: 100%;
+    caption-side: bottom;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.table-header {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.05);
+    height: 40px;
+    border-style: hidden;
+}
+
+.table-header-cell {
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.table-row, td {
+    color: #FFFFFF;
+    height: 50px;
+    border-color: rgba(255, 255, 255, 0.1);
+    vertical-align: middle;
+}
+
+.details-label {
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.details-text {
+    line-height: 1.4;
+    color: #FFFFFF;
+    max-width: fit-content;
+}
+
+.details-box {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px 10px 10px 10px;
+}
+
+.details-cell {
+    padding: 10px 0 0 !important;
+}
+
+.row-with-expanded-details {
+    border-bottom: none !important;
+}
+
+.row-with-expanded-details .icon-arrow {
+    transform: rotate(180deg);
+}
+
+.expanded-details {
+    border-top: none !important;
+}
+
+
+.delete-entry-button {
+    display: flex;
+    justify-content: end;
+}
+
+.icon-sort {
+    margin-left: 0.5rem;
+    pointer-events: none;
+}
+
+.inverted {
+    transform: rotate(180deg);
+}
+
+.btn-sort {
+    padding: 0 !important;
+}
+
+.btn-link {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.btn-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-link:focus {
+    box-shadow: none;
+}
+
+.icon-delete > svg > path {
+    fill: #FF1741;
+}
+
+.icon-edit > svg > path {
+    fill: #1080ff;
+}
+
+.icon-download > svg > path {
+    fill: #24e896;
+}

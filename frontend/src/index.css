@@ -1,0 +1,17 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("./imgs/backgrounds/bg.jpg");
+    background-size: cover;
+    color: #FFFFFF;
+    height: 100vh;
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}

@@ -1,0 +1,221 @@
+input[type="text"],
+input[type="email"],
+input[type="password"],
+.form-control {
+    font-size: 16px;
+    line-height: 1.5;
+    border-style: solid;
+    border-width: 1px;
+    outline-style: none !important;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px 15px;
+    background-color: transparent;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.form-field {
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+.form-control:focus {
+    border-color: #513ff3;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+button[type="submit"], .btn-primary {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border-width: 0;
+    border-radius: 6px;
+    transition: color 0.3s linear;
+    padding: 10px 20px !important;
+    background-color: #1080ff;
+    color: #ffffff;
+    margin-top: 15px;
+    font-weight: 500;
+    border-color: #1080ff;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover, .btn-primary:hover,
+button[type="submit"]:focus, .btn-primary:focus,
+button[type="submit"]:active, .btn-primary:active,
+.btn-primary:active:focus {
+    background-color: #513ff3;
+    box-shadow: none;
+    border-width: 0;
+    border-color: #513ff3;
+}
+
+.btn-secondary {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border-width: 0;
+    border-radius: 6px;
+    transition: color 0.3s linear;
+    padding: 5px 15px !important;
+    background-color: #1080ff;
+    color: #ffffff;
+    margin-top: 15px;
+    font-weight: 500;
+    border-color: #1080ff;
+    font-size: 16px;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary:active:focus {
+    background-color: #513ff3;
+    box-shadow: none;
+    border-width: 0;
+    border-color: #513ff3;
+}
+
+.btn-success {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border-width: 0;
+    border-radius: 6px;
+    transition: color 0.3s linear;
+    padding: 10px 20px !important;
+    background-color: #00cc89;
+    color: #ffffff;
+    margin-top: 15px;
+    font-weight: 500;
+    border-color: #00cc89;
+    font-size: 16px;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success:active:focus {
+    background-color: #24e896;
+    box-shadow: none;
+    border-width: 0;
+    border-color: #24e896;
+}
+
+.form-check-input:checked {
+    background-color: #513ff3;
+    border-color: #513ff3;
+}
+
+.form-check-input:focus {
+    border-color: #513ff3;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(57, 43, 187);
+}
+
+.form-check-input {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.list-container {
+    display: flex;
+}
+
+.alert {
+    padding: 5px 10px;
+}
+
+.alert-with-text {
+    font-size: 12px;
+    margin: 4px 0 4px 0;
+    padding: 0 0;
+    border: none;
+    background-color: transparent;
+}
+
+.alert-with-background {
+    margin: 4px 0 4px 0;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.alert-danger {
+    color: #FF1741;
+}
+
+.form-group {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+label,
+.form-label {
+    color: #FFFFFF !important;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.css-13cymwt-control {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    padding: 5px 5px;
+    font-size: 16px;
+}
+
+.css-t3ipsp-control {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: #513ff3 !important;
+    box-shadow: none !important;
+    padding: 5px 5px;
+    font-size: 16px;
+}
+
+.css-1u9des2-indicatorSeparator {
+    display: none !important;
+}
+
+.css-1nmdiq5-menu {
+    background-color: #130b50 !important;
+}
+
+.css-d7l1ni-option {
+    background-color: #513ff3 !important;
+}
+
+.css-tj5bde-Svg > path {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.css-b62m3t-container {
+    font-size: 14px !important;
+    color: #FFFFFF;
+}
+
+.css-1jqq78o-placeholder {
+    color: #FFFFFF !important;
+}
