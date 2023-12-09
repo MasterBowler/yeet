@@ -1,6 +1,5 @@
 package com.mike.teachingpractice.models;
 
-
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -18,14 +17,61 @@ public class StudentReport {
     private ClassSession classSession;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private User student;
+    @JoinColumn(name = "student_details_id", nullable = false)
+    private StudentDetails studentDetails;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    //link to student details somehow
-
     @OneToMany(mappedBy = "studentReport")
-    private List<StudentReportRow> studentReportRow;
+    private List<StudentReportRow> studentReportRows;
+
+    public StudentReport() {
+    }
+
+    public StudentReport(ClassSession classSession, StudentDetails studentDetails, LocalDateTime createdAt) {
+        this.classSession = classSession;
+        this.studentDetails = studentDetails;
+        this.createdAt = createdAt;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ClassSession getClassSession() {
+        return classSession;
+    }
+
+    public void setClassSession(ClassSession classSession) {
+        this.classSession = classSession;
+    }
+
+    public StudentDetails getStudentDetails() {
+        return studentDetails;
+    }
+
+    public void setStudentDetails(StudentDetails studentDetails) {
+        this.studentDetails = studentDetails;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public List<StudentReportRow> getStudentReportRows() {
+        return studentReportRows;
+    }
+
+    public void setStudentReportRows(List<StudentReportRow> studentReportRows) {
+        this.studentReportRows = studentReportRows;
+    }
 }

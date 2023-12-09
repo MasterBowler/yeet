@@ -1,6 +1,5 @@
 package com.mike.teachingpractice.models;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -17,5 +16,47 @@ public class Chat {
     @Column(name = "chat_name", nullable = false)
     private String chatName;
 
-    //chat image?
+    @Column(name = "chat_image", nullable = true)
+    private String chatImage;
+
+    public Chat() {
+    }
+
+    public Chat(ChatType chatType, String chatName, String chatImage) {
+        this.chatType = chatType;
+        this.chatName = chatName;
+        this.chatImage = chatImage;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public ChatType getChatType() {
+        return chatType;
+    }
+
+    public void setChatType(ChatType chatType) {
+        this.chatType = chatType;
+    }
+
+    public String getChatName() {
+        return chatName;
+    }
+
+    public void setChatName(String chatName) {
+        this.chatName = chatName;
+    }
+
+    public String getChatImage() {
+        return chatImage;
+    }
+
+    public void setChatImage(String chatImage) {
+        this.chatImage = chatImage;
+    }
 }
