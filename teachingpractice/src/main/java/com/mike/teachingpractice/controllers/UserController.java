@@ -11,22 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mike.teachingpractice.models.User;
 import com.mike.teachingpractice.repositories.UserRepository;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+// ? CrossOrigin("*") - used to not get blocked by CORS
 public class UserController {
 
     @Autowired
     private UserRepository userRepository; // Data Access Object
 
-    @GetMapping
-    public @ResponseBody List<User> getAllUsers() {
-        return userRepository.findAll();
+    @GetMapping("/hello")
+    public String helloUserController(Principal principal) {
+        return "User " + principal.getName();
     }
 
-    @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userRepository.save(user);
-    }
+    // @PreAuthorize("hasAuthority("ADMIN")") how to auhtorize routes by role
+    // @GetMapping("/adminOnly")
+    // ...
 }

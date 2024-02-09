@@ -1,51 +1,51 @@
 package com.mike.teachingpractice.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "chat_memberships")
 public class ChatMembership {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "chat_membership_id", nullable = false, unique = true)
+    private Integer chatMembershipId;
 
     @ManyToOne
-    @JoinColumn(name = "chat_id", nullable = false)
+    @JoinColumn(name = "chat_id")
     private Chat chat;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
-    public ChatMembership() {
+    // setter and getter methods
+
+    public Integer getChatMembershipId() {
+        return chatMembershipId;
     }
 
-    public ChatMembership(Chat chat, User user) {
-        this.chat = chat;
-        this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setChatMembershipId(Integer chatMembershipId) {
+        this.chatMembershipId = chatMembershipId;
     }
 
     public Chat getChat() {
         return chat;
     }
 
-    public void setChat(Chat chat) {
-        this.chat = chat;
+    public void setChat(Chat chatId) {
+        this.chat = chatId;
     }
 
     public User getUser() {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(User userId) {
+        this.user = userId;
     }
 }

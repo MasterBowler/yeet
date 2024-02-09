@@ -1,15 +1,17 @@
-security.jwt.token.secret-key: my-secret-key
-
+server:
+  port: 8081
 spring:
   datasource:
-    url: jdbc:mysql://localhost:5432/backenddb #change this
-    username: root #change this
-    password: root #change this
+    url: jdbc:mysql://localhost:3306/backenddb
+    username: Mike
+    password: inapfVTmm09^^UWU
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: create-drop #create? update?
+      ddl-auto: create-drop #when in production change to "update"
+      transaction:
+        jta:
+          platform: org.hibernate.service.jta.platform.internal.JBossStandAloneJtaPlatform
     show-sql: true
 
   application:

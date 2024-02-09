@@ -9,33 +9,30 @@ import java.time.LocalDateTime;
 public class GroupMembership {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "group_id", nullable = false)
     private Group group;
 
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
     private User student;
 
-    @Column(name = "joined_at", nullable = false)
-    private LocalDateTime joinedAt;
+    // @Column(name = "joined_at", nullable = false)
+    // private LocalDateTime joinedAt;
 
     public GroupMembership() {
     }
 
-    public GroupMembership(Group group, User student, LocalDateTime joinedAt) {
+    public GroupMembership(Group group, User student) {
         this.group = group;
         this.student = student;
-        this.joinedAt = joinedAt;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,11 +52,11 @@ public class GroupMembership {
         this.student = student;
     }
 
-    public LocalDateTime getJoinedAt() {
-        return joinedAt;
-    }
+    // public LocalDateTime getJoinedAt() {
+    // return joinedAt;
+    // }
 
-    public void setJoinedAt(LocalDateTime joinedAt) {
-        this.joinedAt = joinedAt;
-    }
+    // public void setJoinedAt(LocalDateTime joinedAt) {
+    // this.joinedAt = joinedAt;
+    // }
 }

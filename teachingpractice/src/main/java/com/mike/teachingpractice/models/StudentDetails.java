@@ -7,10 +7,11 @@ import jakarta.persistence.*;
 public class StudentDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
-    @Column(name = "student_id")
-    private long studentId;
+    // @Column(name = "student_id")
+    @OneToOne
+    private User student;
 
     @Column(name = "university")
     private String university;
@@ -27,9 +28,6 @@ public class StudentDetails {
     @Column(name = "group")
     private String group;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
     @Column(name = "location")
     private String location;
 
@@ -43,35 +41,34 @@ public class StudentDetails {
     public StudentDetails() {
     }
 
-    public StudentDetails(long studentId, String university, String faculty, String specialty, int yearOfStudy,
-            String group, String phoneNumber, String location, String address, String transport) {
-        this.studentId = studentId;
+    public StudentDetails(User student, String university, String faculty, String specialty, int yearOfStudy,
+            String group, String location, String address, String transport) {
+        this.student = student;
         this.university = university;
         this.faculty = faculty;
         this.specialty = specialty;
         this.yearOfStudy = yearOfStudy;
         this.group = group;
-        this.phoneNumber = phoneNumber;
         this.location = location;
         this.address = address;
         this.transport = transport;
     }
 
     // Getters and Setters
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public long getStudentId() {
-        return studentId;
+    public User getStudent() {
+        return student;
     }
 
-    public void setStudentId(long studentId) {
-        this.studentId = studentId;
+    public void setStudent(User student) {
+        this.student = student;
     }
 
     public String getUniversity() {
@@ -112,14 +109,6 @@ public class StudentDetails {
 
     public void setGroup(String group) {
         this.group = group;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public String getLocation() {

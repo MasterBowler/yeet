@@ -8,18 +8,35 @@ import java.time.LocalDateTime;
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
+    // @Column(name = "session_id")
     @ManyToOne
-    @JoinColumn(name = "session_id", nullable = false)
+    @JoinColumn(name = "session_id")
     private ClassSession session;
 
+    // @Column(name = "student_id", nullable = false)
     @ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
+    @JoinColumn(name = "student_id")
     private User student;
 
-    @Column(name = "enrollment_date", nullable = false)
+    @Column(name = "enrollment_date")
     private LocalDateTime enrollmentDate;
+
+    @Column(name = "assitance")
+    private boolean assitance;
+
+    @Column(name = "teaching_project")
+    private boolean teachingProject;
+
+    @Column(name = "portfolio")
+    private boolean portfolio;
+
+    @Column(name = "workshop")
+    private boolean workshop;
+
+    @Column(name = "extracurriculars")
+    private boolean extracurriculars;
 
     public Enrollment() {
     }
@@ -30,11 +47,11 @@ public class Enrollment {
         this.enrollmentDate = enrollmentDate;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

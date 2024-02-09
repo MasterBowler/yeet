@@ -1,19 +1,29 @@
 package com.mike.teachingpractice.models;
 
-import jakarta.persistence.*;
+import java.util.Date;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "chat_messages")
 public class ChatMessage {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "chat_message_id", nullable = false, unique = true)
+    private Integer chatMessageId;
 
-    @ManyToOne
-    @JoinColumn(name = "sender_id", nullable = false)
-    private User sender;
+    @Column(name = "senderId", nullable = false)
+    private String senderId;
 
     @ManyToOne
     @JoinColumn(name = "chat_id", nullable = false)
@@ -22,56 +32,47 @@ public class ChatMessage {
     @Column(name = "message_content", nullable = false)
     private String messageContent;
 
-    @Column(name = "message_time", nullable = false)
-    private LocalDateTime messageTime;
+    @Column(name = "timestamp", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestamp;
 
-    public ChatMessage() {
+    public Integer getChatMessageId() {
+        return chatMessageId;
     }
 
-    public ChatMessage(User sender, Chat chat, String messageContent, LocalDateTime messageTime) {
-        this.sender = sender;
-        this.chat = chat;
-        this.messageContent = messageContent;
-        this.messageTime = messageTime;
+    public void setChatMessageId(Integer chatMessageId) {
+        this.chatMessageId = chatMessageId;
     }
 
-    public Long getId() {
-        return id;
+    public String getSenderId() {
+        return senderId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getSender() {
-        return sender;
-    }
-
-    public void setSender(User sender) {
-        this.sender = sender;
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
     }
 
     public Chat getChat() {
         return chat;
     }
 
-    public void setChat(Chat chat) {
-        this.chat = chat;
+    public void setChat(Chat chatId) {
+        this.chat = chatId;
     }
 
     public String getMessageContent() {
         return messageContent;
     }
 
-    public void setMessageContent(String messageContent) {
-        this.messageContent = messageContent;
+    public void setMessageContent(String message) {
+        this.messageContent = message;
     }
 
-    public LocalDateTime getMessageTime() {
-        return messageTime;
+    public Date getTimeStamp() {
+        return timestamp;
     }
 
-    public void setMessageTime(LocalDateTime messageTime) {
-        this.messageTime = messageTime;
+    public void setTimeStamp(Date timeStamp) {
+        this.timestamp = timeStamp;
     }
 }

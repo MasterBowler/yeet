@@ -1,7 +1,11 @@
 package com.mike.teachingpractice.repositories;
 
-import com.mike.teachingpractice.models.ChatMessage;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> {
+import com.mike.teachingpractice.models.ChatMessage;
+
+@Repository
+public interface ChatMessageRepository extends JpaRepository<ChatMessage, Integer> {
+
 }

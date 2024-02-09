@@ -7,13 +7,12 @@ import jakarta.persistence.*;
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
     @Column(name = "group_name", nullable = false)
     private String groupName;
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id", nullable = false)
     private User teacher;
 
     public Group() {
@@ -24,11 +23,11 @@ public class Group {
         this.teacher = teacher;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

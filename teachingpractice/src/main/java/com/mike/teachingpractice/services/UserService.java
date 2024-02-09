@@ -1,58 +1,40 @@
 package com.mike.teachingpractice.services;
 
-import java.nio.CharBuffer;
-import java.util.Optional;
-
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.mike.teachingpractice.dtos.CredentialsDto;
-import com.mike.teachingpractice.dtos.SignUpDto;
-import com.mike.teachingpractice.dtos.UserDto;
-import com.mike.teachingpractice.exceptions.AppException;
-import com.mike.teachingpractice.mappers.UserMapper;
-import com.mike.teachingpractice.models.User;
 import com.mike.teachingpractice.repositories.UserRepository;
 
-import lombok.RequiredArgsConstructor;
+//This class determines whether the username&password match up
 
-@RequiredArgsConstructor
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
+    @Autowired
+    private PasswordEncoder encoder;
+
+    // @Autowired
+    // private UserRepository userRepository;
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final UserMapper userMapper;
 
-    public UserDto login(CredentialsDto credentialsDto) {
-        User user = userRepository.findByLogin(credentialsDto.login())
-                .orElseThrow(() -> new AppException("Unkown user", HttpStatus.NOT_FOUND));
-
-        if (passwordEncoder.matches(CharBuffer.wrap(credentialsDto.password()), user.getPasswordHash())) {
-            return userMapper.toUserDto(user);
-        }
-        throw new AppException("Invalid password", HttpStatus.BAD_REQUEST);
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    public UserDto register(SignUpDto userDto) {
-        Optional<User> optionalUser = userRepository.findByLogin(userDto.login());
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // System.out.println("In the user details service");
 
-        if (optionalUser.isPresent()) {
-            throw new AppException("Login already exists", HttpStatus.BAD_REQUEST);
-        }
-
-        User user = userMapper.signUpToUser(userDto);
-        user.setPasswordHash(passwordEncoder.encode(CharBuffer.wrap(userDto.password())));
-
-        User savedUser = userRepository.save(user);
-
-        return userMapper.toUserDto(savedUser);
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("username is not valid"));
     }
 
-    public UserDto findByLogin(String login) {
-        User user = userRepository.findByLogin(login)
-                .orElseThrow(() -> new AppException("Unknown user", HttpStatus.NOT_FOUND));
-        return userMapper.toUserDto(user);
-    }
+    // public void connectUser(User user); status online
+    // public void disconnectUser(User user); status offline
+    // maybe online status should be set at login / logout
+
 }

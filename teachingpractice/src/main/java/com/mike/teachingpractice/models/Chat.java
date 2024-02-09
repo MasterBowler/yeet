@@ -1,62 +1,76 @@
 package com.mike.teachingpractice.models;
 
-import jakarta.persistence.*;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "chats")
 public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "chat_id", nullable = false, unique = true)
+    private Integer chatId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "chat_type", nullable = false)
-    private ChatType chatType;
+    @Column(name = "is_group_chat", nullable = false)
+    private Boolean isGroupChat;
 
-    @Column(name = "chat_name", nullable = false)
-    private String chatName;
+    @OneToMany(mappedBy = "chat")
+    private Set<ChatMessage> messages;
 
-    @Column(name = "chat_image", nullable = true)
-    private String chatImage;
+    @OneToMany(mappedBy = "chat")
+    private Set<ChatMembership> memberships;
+
+    public Chat(Integer chatId) {
+        this.chatId = chatId;
+    }
 
     public Chat() {
     }
 
-    public Chat(ChatType chatType, String chatName, String chatImage) {
-        this.chatType = chatType;
-        this.chatName = chatName;
-        this.chatImage = chatImage;
+    public Set<User> getUsers() {
+        return this.memberships.stream()
+                .map(ChatMembership::getUser)
+                .collect(Collectors.toSet());
     }
 
-    public long getId() {
-        return id;
+    public Integer getChatId() {
+        return chatId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setChatId(Integer chatId) {
+        this.chatId = chatId;
     }
 
-    public ChatType getChatType() {
-        return chatType;
+    public Boolean getIsGroupChat() {
+        return isGroupChat;
     }
 
-    public void setChatType(ChatType chatType) {
-        this.chatType = chatType;
+    public void setIsGroupChat(Boolean isGroupChat) {
+        this.isGroupChat = isGroupChat;
     }
 
-    public String getChatName() {
-        return chatName;
+    public Set<ChatMessage> getMessages() {
+        return messages;
     }
 
-    public void setChatName(String chatName) {
-        this.chatName = chatName;
+    public void setMessages(Set<ChatMessage> messages) {
+        this.messages = messages;
     }
 
-    public String getChatImage() {
-        return chatImage;
+    public Set<ChatMembership> getMemberships() {
+        return memberships;
     }
 
-    public void setChatImage(String chatImage) {
-        this.chatImage = chatImage;
+    public void setMemberships(Set<ChatMembership> memberships) {
+        this.memberships = memberships;
     }
 }

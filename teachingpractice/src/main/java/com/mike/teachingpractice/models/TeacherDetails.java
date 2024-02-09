@@ -7,10 +7,10 @@ import jakarta.persistence.*;
 public class TeacherDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
 
-    @Column(name = "teacher_id")
-    private long teacherId;
+    @OneToOne
+    private User teacher;
 
     @Column(name = "highschool")
     private String highschool;
@@ -19,7 +19,7 @@ public class TeacherDetails {
     private String subject;
 
     @Column(name = "experience")
-    private int experience;
+    private Integer experience;
 
     @Column(name = "teaching_degree")
     private String teachingDegree;
@@ -27,28 +27,28 @@ public class TeacherDetails {
     public TeacherDetails() {
     }
 
-    public TeacherDetails(long teacherId, String highschool, String subject, int experience, String teachingDegree) {
-        this.teacherId = teacherId;
+    public TeacherDetails(User teacher, String highschool, String subject, int experience, String teachingDegree) {
+        this.teacher = teacher;
         this.highschool = highschool;
         this.subject = subject;
         this.experience = experience;
         this.teachingDegree = teachingDegree;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public long getTeacherId() {
-        return teacherId;
+    public User getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherId(long teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacherId(User teacher) {
+        this.teacher = teacher;
     }
 
     public String getHighschool() {

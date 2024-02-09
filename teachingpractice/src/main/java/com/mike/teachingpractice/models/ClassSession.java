@@ -3,17 +3,24 @@ package com.mike.teachingpractice.models;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "class_sessions")
 public class ClassSession {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id", nullable = false)
     private User teacher;
+
+    // @OneToMany(mappedBy = "classSession")
+    // private Set<Enrollment> enrollments;
+
+    @ManyToOne
+    private Group group;
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
@@ -27,6 +34,9 @@ public class ClassSession {
     @Column(name = "available_seats", nullable = false)
     private Integer availableSeats;
 
+    @Column(name = "occupied_seats", nullable = false)
+    private Integer occupiedSeats;
+
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -38,7 +48,8 @@ public class ClassSession {
     }
 
     // Constructor with parameters
-    public ClassSession(User teacher, LocalDate date, LocalTime startTime, LocalTime endTime, Integer availableSeats,
+    public ClassSession(User teacher, Group group, LocalDate date, LocalTime startTime, LocalTime endTime,
+            Integer availableSeats,
             String name, String description) {
         this.teacher = teacher;
         this.date = date;
@@ -47,14 +58,15 @@ public class ClassSession {
         this.availableSeats = availableSeats;
         this.name = name;
         this.description = description;
+        this.occupiedSeats = 0;
     }
 
     // Getters and Setters
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -96,6 +108,14 @@ public class ClassSession {
 
     public void setAvailableSeats(Integer availableSeats) {
         this.availableSeats = availableSeats;
+    }
+
+    public Integer getOccupiedSeats() {
+        return occupiedSeats;
+    }
+
+    public void setOccupiedSeats(Integer occupiedSeats) {
+        this.occupiedSeats = occupiedSeats;
     }
 
     public String getName() {
